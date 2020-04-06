@@ -80,7 +80,7 @@ public class Grade {
 	
 	
 	public String reportCard() {
-		String reportCard = String.format("[%s : 총점 %d 점, 평균 %d 점, 학점 %s]", getName(), totalScore(),averageScore(), grade() );
+		String reportCard = String.format("[%s : 총 %d 점, 평균 %d 점, 학점 %s]", getName(), totalScore(),averageScore(), grade() );
 		return reportCard;
 	}
 	
