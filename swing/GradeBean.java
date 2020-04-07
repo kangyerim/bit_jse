@@ -7,12 +7,20 @@ package com.jse.swing;
 70점 이상이면 C 60점 이상이면 D 50점 이상이면 E 50점 미만이면 F 학점입니다라고
  출력되게 해주세요
  * */
-public class Grade {
+public class GradeBean {
 	private String name;
 	private int korean;
 	private int english;
 	private int math;
 	
+	public GradeBean(String name, int korean, int english,int math) { //default 생성자
+		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.korean = korean;
+		this.english = english;
+		this.math = math;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -37,7 +45,7 @@ public class Grade {
 	public void setMath(int math) {
 		this.math = math;
 	}
-	
+
 	public int totalScore() {
 		return korean + english + math;
 	}
@@ -79,8 +87,8 @@ public class Grade {
 	
 	
 	
-	public String reportCard() {
-		String reportCard = String.format("[%s : 총 %d 점, 평균 %d 점, 학점 %s]", getName(), totalScore(),averageScore(), grade() );
+	public String reportCard() { //하나만 보여
+		String reportCard = String.format("[%s : 총 %d 점, 평균 %d 점, 학점 %s]", name, totalScore(),averageScore(), grade() );
 		return reportCard;
 	}
 	

@@ -1,11 +1,19 @@
 package com.jse.swing;
 
-public class Member {
+public class MemberBean {
 	private String userid;
 	private String passwd;
 	private String name;
 	private int age;
 
+	public MemberBean(String userid, String passwd,String name,int age) {
+		// TODO Auto-generated constructor stub
+		this.userid = userid;
+		this.passwd = passwd;
+		this.name = name;
+		this.age = age;
+	}
+	
 	public String getUserid () {
 		return userid;
 	}
