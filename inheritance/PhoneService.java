@@ -17,7 +17,7 @@ public class PhoneService {
 		return phones;
 	}
 
-	public void add(Phone phone) {
+	public void add(Phone phone) { //한명씩 추가한다
 		phones[count] = phone;
 		count++;
 	}
