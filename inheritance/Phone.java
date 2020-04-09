@@ -34,4 +34,10 @@ public class Phone {
 	public String getCompany() {
 		return company;
 	}
+
+	@Override //an-notation : 주석 - error에 @주소뜨면 overide안한거
+	public String toString() {
+		return "Phone : phoneNumber=" + phoneNumber + ", name=" + name + ", company=" + company;
+	}
+	
 }

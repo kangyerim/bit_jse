@@ -15,6 +15,10 @@ public class GalaxyNote extends Iphone{
 	public void setBigsize(String bigsize) {
 		this.bigsize = bigsize;
 	}
-
+	@Override
+	public String toString() {
+	
+		return super.toString() + ", bigsize = "+bigsize;
+	}
 	
 }

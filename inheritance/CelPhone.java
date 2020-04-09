@@ -29,4 +29,9 @@ public class CelPhone extends Phone {
 		this.move = move;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + ", portable=" + portable + ", move=" + move + "]";
+	}
+
 }
