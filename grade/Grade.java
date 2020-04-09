@@ -1,4 +1,5 @@
 package com.jse.grade;
+
 /*
 클라이언트에서 프로그램 개발 요청이 왔습니다. 
 이름과 국,영,수 세과목점수를 입력받아서() 
@@ -9,90 +10,49 @@ package com.jse.grade;
  * */
 public class Grade {
 	private String name;
-	private int korean;
-	private int english;
-	private int math;
-	
-	public Grade(String name, int korean, int english,int math) { //default 생성자
-		// TODO Auto-generated constructor stub
-		this.name = name;
-		this.korean = korean;
-		this.english = english;
-		this.math = math;
-	}
+	private int korean, english, math;
 
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public int getKorean() {
 		return korean;
 	}
+
 	public void setKorean(int korean) {
 		this.korean = korean;
 	}
+
 	public int getEnglish() {
 		return english;
 	}
+
 	public void setEnglish(int english) {
 		this.english = english;
 	}
+
 	public int getMath() {
 		return math;
 	}
+
 	public void setMath(int math) {
 		this.math = math;
 	}
 
-	public int totalScore() {
-		return korean + english + math;
+	@Override
+	public String toString() {
+		return "Grade [name=" + name + ", korean=" + korean + ", english=" + english + ", math=" + math + "]";
 	}
-	public int averageScore() {
-		return totalScore()/3;
-	}
+
 	/*
-	public String grade() {
-		String grade = "";
-		if(averageScore() >= 90) {
-			grade = "A";
-		}else if(averageScore() >=80) {
-			grade = "B";
-		}else if(averageScore() >= 70) {
-			grade = "C";
-		}else if(averageScore() >= 60) {
-			grade = "D";
-		}else if(averageScore() >= 50) {
-			grade = "E";
-		}else {
-			grade = "F";
-		}
-		return grade;
-	}
-	*/
-	
-	public String grade( ) {
-		String grade ="";
-		int deci = averageScore()/10;
-		switch(deci) {
-		case 9: grade ="A"; break;
-		case 8: grade ="B"; break;
-		case 7: grade ="C"; break;
-		case 6: grade ="D"; break;
-		case 5: grade ="E"; break;
-		}
-		return grade;
-	}
-	
-	
-	
-	public String reportCard() { //하나만 보여
-		String reportCard = String.format("[%s : 총 %d 점, 평균 %d 점, 학점 %s]", name, totalScore(),averageScore(), grade() );
-		return reportCard;
-	}
-	
-	
-	
-	
+	 * public String reportCard() { // 하나만 보여 String reportCard =
+	 * String.format("[%s : 총 %d 점, 평균 %d 점, 학점 %s]", name, totalScore(),
+	 * averageScore(), grade()); return reportCard; }
+	 */
+
 }

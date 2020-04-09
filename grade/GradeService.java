@@ -1,24 +1,21 @@
 package com.jse.grade;
 
-public class GradeService {
-	private Grade[] grades;
-	private int count;
+public interface GradeService {
+	public void add(Grade grade);
 
-	public GradeService() {
-		grades = new Grade[3];
-		count = 0;
-	}
+	public void setGradeBean(Grade[] grades);
 
-	public void setGradeBean(Grade[] grades) {
-		this.grades = grades;
-	}
+	public Grade[] getGrades();
 
-	public Grade[] getGrades() {
-		return grades;
-	}
+	public void setCount(int count);
 
-	public void add(Grade grade) {
-		grades[count] = grade;
-		count++;
-	}
+	public int getCount();
+
+	public int totalScore(Grade grade);
+
+	public int averageScore(Grade grade);
+
+	public String record(Grade grade);
+	public String printGrades();
+
 }
