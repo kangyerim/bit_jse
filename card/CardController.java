@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CardController {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		CardService service = new CardService();
+		CardServiceImpl service = new CardServiceImpl();
 		while (true) {
 			System.out.println("(0)Exit  (1)카드 3장 받기  (2)출력");
 			switch (scanner.nextInt()) {
