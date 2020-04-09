@@ -1,12 +1,12 @@
-package com.jse.swing;
+package com.jse.member;
 
-public class MemberBean {
+public class Member {
 	private String userid;
 	private String passwd;
 	private String name;
 	private int age;
 
-	public MemberBean(String userid, String passwd,String name,int age) {
+	public Member(String userid, String passwd,String name,int age) {
 		// TODO Auto-generated constructor stub
 		this.userid = userid;
 		this.passwd = passwd;
@@ -14,6 +14,10 @@ public class MemberBean {
 		this.age = age;
 	}
 	
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getUserid () {
 		return userid;
 	}

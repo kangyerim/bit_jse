@@ -1,4 +1,4 @@
-package com.jse.app;
+package com.jse.util;
 public class Calculator {
 	private int num1; //인스턴스 변수 - 값을 저장하기 위함
 	private int num2;
