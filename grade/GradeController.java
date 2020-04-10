@@ -1,10 +1,15 @@
 package com.jse.grade;
 
 import com.jse.util.Constants;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class GradeController {
 	public static void main(String[] args) {
+		JFrame frame = new JFrame("성적관리");
+		frame.setSize(600, 400);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 		GradeServiceImpl gradeService = new GradeServiceImpl();
 		Grade grade = null;
 		while (true) {

@@ -3,6 +3,8 @@ import java.util.Random;
 import com.jse.member.Member;
 import java.util.Scanner;
 
+import javax.swing.*;
+
 import com.jse.member.Kaup;
 import com.jse.util.Calculator;
 
@@ -18,6 +20,11 @@ public class GameController {
 		Rps rps = new Rps(); //인스턴스를 만든다
 		Kaup kaup = null;
 		
+		JFrame frame = new JFrame("게임을 시작하지");
+		frame.setSize(800,600);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 		
 		while(true) {
 			System.out.println("0.종료  "

@@ -10,4 +10,6 @@ public class Constants {
 	public final static String GALAXYNOTE_MENU="갤럭시번호, 이름, 제작사, 포터블, 검색, 빅사이즈";
 	public final static String GRADE_MENU="(0)종료  (1)성적표 입력  (2)성적표 출력  (3)1,2,3등 순위 ";
 	public final static String GRADE_INPUT="이름, 국어, 영어, 수학 점수를 입력하세요";
+	public final static String CARD_MENU="(0)Exit  (1)카드 3장 받기  (2)출력";
+	public final static String CARD_INPUT="카드 3장을 받자: 모양, 숫자를 차례로 입력하세요.";
 }
