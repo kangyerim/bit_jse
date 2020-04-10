@@ -5,11 +5,7 @@ import javax.swing.*;
 
 public class GradeController {
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("성적관리");
-		frame.setSize(600, 400);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+
 		GradeServiceImpl gradeService = new GradeServiceImpl();
 		Grade grade = null;
 		while (true) {
@@ -34,8 +30,10 @@ public class GradeController {
 				JOptionPane.showMessageDialog(null, gradeService.ranking());
 				break;
 
+				
 			}
 		}
 	}
 
 }
+
