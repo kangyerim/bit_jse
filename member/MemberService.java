@@ -4,5 +4,7 @@ public interface MemberService {
 	public void setMembers(Member[] members);
 	public Member[] getMembers();
 	public void add(Member member);
+	public boolean login(Member member);
+	
 }
 

@@ -1,99 +1,168 @@
 package com.jse.grade;
-
+import java.awt.Container;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import com.jse.member.MemberServiceImpl;
+
 public class GradeView extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	JButton saveButton, listButton;
-	JLabel[] jlabels;
-	JTextField[] jfields;
-	JPanel panel;
+    private Container container; 
+    private JLabel title,nameLabel,koreanLabel,englishLabel,
+    				mathLabel,javaLabel; 
+    private JTextField nameText, koreanText, englishText, mathText,
+    					javaText; 
+    private JTextArea resultText; 
+    private JButton submitButton, listButton; 
 	GradeService gradeService;
 
 	public GradeView() {
 		gradeService = new GradeServiceImpl(); // ????
 	}
 
-	public void open() {
-		this.setSize(500, 500);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel = new JPanel();
-		this.add(panel);
-		this.setVisible(true);
-		jlabels = new JLabel[6];
-		jfields = new JTextField[6];
-		String[] names = { "이름", "국어", "영어", "수학", "자바", "검색 결과" };
-		for (int i = 0; i < names.length; i++) {
-			jlabels[i] = new JLabel(names[i]);
-			panel.add(jlabels[i]);
-			jfields[i] = new JTextField();
-			panel.add(jfields[i]);
-		}
-		saveButton = new JButton("저장");
-		listButton = new JButton("목록");
-		saveButton.addActionListener(this);
-		listButton.addActionListener(this);
-		panel.add(saveButton);
-		panel.add(listButton);
-		jlabels[0].setBounds(40, 10, 40, 40);
-		jlabels[1].setBounds(40, 50, 40, 40);
-		jlabels[2].setBounds(40, 90, 60, 40);
-		jlabels[3].setBounds(40, 130, 40, 40);
-		jlabels[4].setBounds(40, 170, 60, 40);
-		jlabels[5].setBounds(40, 210, 60, 40);
-		jfields[0].setBounds(120, 10, 200, 30);
-		jfields[1].setBounds(120, 50, 200, 30);
-		jfields[2].setBounds(120, 90, 200, 30);
-		jfields[3].setBounds(120, 130, 280, 30);
-		jfields[4].setBounds(120, 180, 280, 30);
-		jfields[5].setBounds(120, 210, 280, 100);
-		saveButton.setBounds(125, 330, 80, 30);
-		listButton.setBounds(200, 330, 80, 30);
-		this.setLocationRelativeTo(null);
-	}
+	public void open(){ 
+    	setTitle("Swing Exercise"); 
+        setBounds(300, 90, 900, 600); 
+        setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        setResizable(false); 
+  
+        container = getContentPane(); 
+        container.setLayout(null); 
+  
+        title = new JLabel("Swing Form"); 
+        title.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        title.setSize(300, 30); 
+        title.setLocation(300, 30); 
+        container.add(title); 
+  
+        nameLabel = new JLabel("Name"); 
+        nameLabel.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        nameLabel.setSize(100, 20); 
+        nameLabel.setLocation(100, 100);
+        container.add(nameLabel); 
+  
+        nameText = new JTextField(); 
+        nameText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        nameText.setSize(190, 20); 
+        nameText.setLocation(200, 100); 
+        container.add(nameText); 
+  
+        koreanLabel = new JLabel("KOREAN"); 
+        koreanLabel.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        koreanLabel.setSize(100, 20); 
+        koreanLabel.setLocation(100, 150); 
+        container.add(koreanLabel); 
+  
+        koreanText = new JTextField(); 
+        koreanText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        koreanText.setSize(150, 20); 
+        koreanText.setLocation(200, 150); 
+        container.add(koreanText); 
+  
+        englishLabel = new JLabel("ENGLISH"); 
+        englishLabel.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        englishLabel.setSize(100, 20); 
+        englishLabel.setLocation(100, 200); 
+        container.add(englishLabel); 
+        
+        englishText = new JTextField(); 
+        englishText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        englishText.setSize(150, 20); 
+        englishText.setLocation(200, 200); 
+        container.add(englishText);
+  
+        mathLabel = new JLabel("MATH"); 
+        mathLabel.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        mathLabel.setSize(100, 20); 
+        mathLabel.setLocation(100, 250); 
+        container.add(mathLabel); 
+        
+        mathText = new JTextField(); 
+        mathText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        mathText.setSize(150, 20); 
+        mathText.setLocation(200, 250); 
+        container.add(mathText);
+  
+        javaLabel = new JLabel("JAVA"); 
+        javaLabel.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        javaLabel.setSize(100, 20); 
+        javaLabel.setLocation(100, 300); 
+        container.add(javaLabel); 
+        
+        javaText = new JTextField(); 
+        javaText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        javaText.setSize(150, 20); 
+        javaText.setLocation(200, 300); 
+        container.add(javaText);
+        
+  
+        submitButton = new JButton("Submit"); 
+        submitButton.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        submitButton.setSize(100, 20); 
+        submitButton.setLocation(150, 450); 
+        submitButton.addActionListener(this);
+        container.add(submitButton); 
+  
+        listButton = new JButton("List"); 
+        listButton.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        listButton.setSize(100, 20); 
+        listButton.setLocation(270, 450); 
+        listButton.addActionListener(this);
+        container.add(listButton); 
+  
+        resultText = new JTextArea(); 
+        resultText.setFont(new Font("맑은고딕", Font.PLAIN, 15)); 
+        resultText.setSize(300, 400); 
+        resultText.setLocation(500, 100); 
+        resultText.setLineWrap(true); 
+        resultText.setEditable(false); 
+        container.add(resultText); 
+ 
+        setVisible(true); 
+    } 
 
 	public void actionPerformed(ActionEvent event) { // ???
-		if (event.getSource() == saveButton) { // save버튼이 필드에 있어서 여기서 쓰는거 가능?
-			jfields[0].setText("강강강,김김김,이이이,최최최,한한한");
-			jfields[1].setText("89,50,72,100,94");
-			jfields[2].setText("46,82,100,54,87");
-			jfields[3].setText("25,80,98,39,79");
-			jfields[4].setText("100,78,97,59,100");
-			String data = String.format("%s/%s/%s/%s/%s", jfields[0].getText(), jfields[1].getText(),
-					jfields[2].getText(), jfields[3].getText(), jfields[4].getText());
+		if (event.getSource() == submitButton) { // save버튼이 필드에 있어서 여기서 쓰는거 가능?
+			nameText.setText("강강강,김김김,이이이,최최최,한한한");
+			koreanText.setText("89,50,72,100,94");
+			englishText.setText("46,82,100,54,87");
+			mathText.setText("25,80,98,39,79");
+			javaText.setText("100,78,97,59,100");
+			String data = String.format("%s/%s/%s/%s/%s", nameText.getText(), koreanText.getText(),
+					englishText.getText(), mathText.getText(), javaText.getText());
 			String[] arr = data.split("/");
-			Grade[] grades = new Grade[5]; // 이거 뭐여
 			String[] names = arr[0].split(",");
 			String[] koreans = arr[1].split(",");
 			String[] englishs = arr[2].split(",");
 			String[] maths = arr[3].split(",");
 			String[] javas = arr[4].split(",");
 
+			Grade[] grades = new Grade[5]; // 이거 뭐여   빈 강의장 하나를 만든것
 			for (int i = 0; i < 5; i++) {
-				grades[i] = new Grade();
+				grades[i] = new Grade(); // 실체를 갖게하는 중 / 엘리먼트에 실체를 준다 / ( ) ?
 				grades[i].setName(names[i]);
 				grades[i].setKorean(Integer.parseInt(koreans[i]));
 				grades[i].setEnglish(Integer.parseInt(englishs[i]));
 				grades[i].setMath(Integer.parseInt(maths[i]));
 				grades[i].setJava(Integer.parseInt(javas[i]));
-				gradeService.add(grades[i]);
+				gradeService.add(grades[i]); // 엘리멘트를 서버로 보낸다
 			}
 
 		} else if (event.getSource() == listButton) {
-			Grade[] grades = gradeService.getGrades();
+			Grade[] grades = gradeService.getGrades(); //서버에서 가져온다
 			String result = "";
 			for (int i = 0; i < grades.length; i++) {
-				result += grades[i];
+				result += grades[i] + "\n";
 			}
-			jfields[5].setText(result);
-			jfields[4].setText("");
-			jfields[3].setText("");
-			jfields[2].setText("");
-			jfields[1].setText("");
-			jfields[0].setText("");
+			resultText.setText(result);
+			javaText.setText(""); //string값을 null주는 것      (null) : 주소값이 null된다 
+			mathText.setText("");
+			englishText.setText("");
+			koreanText.setText("");
+			nameText.setText("");
 		}
 	}
 
