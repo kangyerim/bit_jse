@@ -27,13 +27,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean login(Member member) {
-		boolean ok = false;
+	public Member login(Member member) {
+		Member ok = null;
 		for (int i = 0; i < members.length; i++) { // 5명의 5개 값중에서 1명의 2개의 값을 확인 :: 검색 search engine :: while아닌이유 :리밋이
 													// 없어서
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPasswd().equals(members[i].getPasswd())) {
-				ok = true;
+				ok = new Member();
+				ok = members[i];
+				break; //일 끝나면 브레이크
 			}
 		}
 		return ok;
