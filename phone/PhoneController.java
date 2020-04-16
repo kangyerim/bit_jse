@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class PhoneController {
 
 	public static void main(String[] args) {
-		PhoneService service = new PhoneService();
+		PhoneService service = new PhoneServiceIpml();
 		String messege = "";
 		while (true) {
 			System.out.println("");
@@ -20,7 +20,7 @@ public class PhoneController {
 
 				break;
 			case "2":
-				Phone[] phones = service.getPhones(); // 저장된 배열을 가져왔
+				Phone[] phones = service.list(); // 저장된 배열을 가져왔
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += phones[i].toString()+"\n";
@@ -34,7 +34,7 @@ public class PhoneController {
 				}
 				break;
 			case "4":
-				CelPhone[] celPhones = service.getCelPhones();
+				CelPhone[] celPhones = service.celList();
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += celPhones[i].toString()+"\n";
@@ -48,7 +48,7 @@ public class PhoneController {
 				}
 				break;
 			case "6":
-				Iphone[] iphones = service.getIphones();
+				Iphone[] iphones = service.iList();
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += iphones[i].toString()+"\n";
@@ -62,7 +62,7 @@ public class PhoneController {
 				}
 				break;
 			case "8":
-				GalaxyNote[] galaxys = service.getGalaxys();
+				GalaxyNote[] galaxys = service.galList();
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += galaxys[i].toString()+"\n";

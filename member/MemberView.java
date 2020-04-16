@@ -9,11 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.jse.grade.Grade;
 
 public class MemberView extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -167,7 +165,7 @@ public class MemberView extends JFrame implements ActionListener {
 
 		} else if (e.getSource() == listButton) {
 			JOptionPane.showMessageDialog(this, "클릭!!!");
-			Member[] members = memberService.getMembers();
+			Member[] members = memberService.list();
 			String result = "";
 			for(int i = 0; i <members.length; i++) {
 				result += members[i];

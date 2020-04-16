@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import com.jse.member.MemberServiceImpl;
 
 public class GradeView extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -152,7 +151,7 @@ public class GradeView extends JFrame implements ActionListener {
 			}
 
 		} else if (event.getSource() == listButton) {
-			Grade[] grades = gradeService.getGrades(); //서버에서 가져온다
+			Grade[] grades = gradeService.list(); //서버에서 가져온다
 			String result = "";
 			for (int i = 0; i < grades.length; i++) {
 				result += grades[i] + "\n";

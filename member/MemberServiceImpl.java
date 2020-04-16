@@ -3,27 +3,31 @@ package com.jse.member;
 public class MemberServiceImpl implements MemberService {
 	private Member[] members;
 	private int count;
-	boolean ok;
 
 	public MemberServiceImpl() {
 		members = new Member[5];
 	}
 
 	@Override
-	public void setMembers(Member[] members) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Member[] getMembers() {
-		return members;
-	}
-
-	@Override
 	public void add(Member member) {
 		members[count] = member;
 		count++;
+	}
+	@Override
+	public Member[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Member detail(Member member) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -40,5 +44,20 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return ok;
 	}
+
+
+
+	@Override
+	public void update(Member member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Member member) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

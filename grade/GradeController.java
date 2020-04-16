@@ -24,7 +24,7 @@ public class GradeController {
 				}
 				break;
 			case "2":
-				JOptionPane.showMessageDialog(null, gradeService.printGrades());
+				JOptionPane.showMessageDialog(null, gradeService.list());
 				break;
 			case "3":
 				JOptionPane.showMessageDialog(null, gradeService.ranking());

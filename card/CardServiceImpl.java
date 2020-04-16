@@ -10,19 +10,7 @@ public class CardServiceImpl implements CardService{
 	}
 	
 	@Override
-	public void setCards(Card[] cards) {
-		this.cards = cards;
-	}
-	@Override
-	public Card[] getCards() {
-		return cards;
-	}
-	@Override
-	public void setCount(int count) {
-		this.count = count;
-	}
-	@Override
-	public int getCount() {
+	public int count() {
 		return count;
 	}
 	@Override
@@ -30,10 +18,36 @@ public class CardServiceImpl implements CardService{
 		cards[count] = card;
 		count++;
 	}
+	@Override
+	public Card[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Card detail(Card card) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void printCard() {
-		Card[] cards = getCards();
+		Card[] cards = list();
 		for(int i=0; i<3; i++) {//for-배열은 한 셋트
 		System.out.println(String.format("카드 모양 :  %s, 카드 숫자 :  %d", cards[i].getKind(), cards[i].getNumber()));
 		}
+	}
+
+
+
+	@Override
+	public void update(Card card) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Card card) {
+		// TODO Auto-generated method stub
+		
 	}
 }
