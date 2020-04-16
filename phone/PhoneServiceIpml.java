@@ -22,11 +22,6 @@ public class PhoneServiceIpml implements PhoneService{
 	public Phone[] list() {
 		return phones;
 	}
-	@Override
-	public CelPhone[] celList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public Iphone[] iList() {
@@ -40,31 +35,7 @@ public class PhoneServiceIpml implements PhoneService{
 		return null;
 	}
 	
-	@Override
-	public void celDetail(CelPhone celPhone) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	@Override
-	public void iDetail(Iphone iphone) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public void gDetail(GalaxyNote galaxy) {
-		// TODO Auto-generated method stub
-		
-	}
-	public int count() {
-		return count;
-	}
-	@Override
-	public void detail(Phone phone) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 
@@ -78,6 +49,54 @@ public class PhoneServiceIpml implements PhoneService{
 	public void delete(Phone phone) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void add(CelPhone phone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void add(GalaxyNote phone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void add(Iphone phone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Phone[] phoneList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CelPhone[] celPhoneList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void detail(Iphone phone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void detail(GalaxyNote phone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

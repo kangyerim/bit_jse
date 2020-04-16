@@ -20,7 +20,7 @@ public class PhoneController {
 
 				break;
 			case "2":
-				Phone[] phones = service.list(); // 저장된 배열을 가져왔
+				Phone[] phones = service.phoneList(); // 저장된 배열을 가져왔
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += phones[i].toString()+"\n";
@@ -34,7 +34,7 @@ public class PhoneController {
 				}
 				break;
 			case "4":
-				CelPhone[] celPhones = service.celList();
+				CelPhone[] celPhones = service.celPhoneList();
 				messege = "";
 				for (int i = 0; i < 3; i++) {
 					messege += celPhones[i].toString()+"\n";

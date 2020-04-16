@@ -5,7 +5,8 @@ public class MemberServiceImpl implements MemberService {
 	private int count;
 
 	public MemberServiceImpl() {
-		members = new Member[5];
+		members = new Member[50000];
+		count = 0;
 	}
 
 	@Override
@@ -13,51 +14,101 @@ public class MemberServiceImpl implements MemberService {
 		members[count] = member;
 		count++;
 	}
+
 	@Override
 	public Member[] list() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return members;
 	}
+
 	@Override
-	public Member detail(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+	public Member[] searchByName(String name) {
+		Member[] searchs = null;
+		int searchCount = count(name);
+		if(searchCount != 0) {
+			searchs = new Member[searchCount];
+			int j = 0;
+			for(int i = 0; i < count; i++) {
+				if(name.equals(members[i].getName())) {
+					searchs[j] = members[i];
+					j++;
+					if(searchCount == j) {
+						break;
+					}
+				}
+			}
+			
+		}
+		return searchs;
+	}
+
+	@Override
+	public Member[] searchByGender(String gender) {
+		Member[] serchGenders = null;
+
+		return serchGenders;
+	}
+
+	@Override
+	public Member detail(String userid) {
+		Member detail = new Member();
+		for (int i = 0; i < count; i++) {
+			if (userid.equals(members[i].getUserid())) {
+				detail = members[i];
+			}
+		}
+		return detail;
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return count;
+	}
+
+	@Override
+	public int count(String name) {
+		int returnCount = 0;
+		for (int i = 0; i < count; i++) {
+			if (name.equals(members[i].getName())) {
+				returnCount++;
+			}
+		}
+		return returnCount;
 	}
 
 	@Override
 	public Member login(Member member) {
-		Member ok = null;
-		for (int i = 0; i < members.length; i++) { // 5명의 5개 값중에서 1명의 2개의 값을 확인 :: 검색 search engine :: while아닌이유 :리밋이
-													// 없어서
+		Member login = null;
+		for (int i = 0; i < count; i++) {
 			if (member.getUserid().equals(members[i].getUserid())
 					&& member.getPasswd().equals(members[i].getPasswd())) {
-				ok = new Member();
-				ok = members[i];
-				break; //일 끝나면 브레이크
+				login = members[i];
+				break;
 			}
 		}
-		return ok;
+		return login;
 	}
-
-
 
 	@Override
 	public void update(Member member) {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < count; i++) {
+			if (member.getUserid().equals(members[i].getUserid())) {
+				members[i].setPasswd(member.getPasswd());
+				break;
+			}
+		}
 	}
 
 	@Override
 	public void delete(Member member) {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < count; i++) {
+			if (member.getUserid().equals(members[i].getUserid())
+					&& member.getPasswd().equals(members[i].getPasswd())) {
+				members[i] = members[count - 1];
+				members[count - 1] = null;
+				count--;
+			}
+		}
 	}
-
 
 }

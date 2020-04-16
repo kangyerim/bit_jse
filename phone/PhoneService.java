@@ -2,14 +2,15 @@ package com.jse.phone;
 
 public interface PhoneService {
 	public void add(Phone phone);
-	public Phone[] list();
-	public CelPhone[] celList();
+	public void add(CelPhone phone);
+	public void add(GalaxyNote phone);
+	public void add(Iphone phone);
 	public Iphone[] iList();
 	public GalaxyNote[] galList();
-	public void detail(Phone phone);
-	public void celDetail(CelPhone celPhone);
-	public void iDetail(Iphone iphone);
-	public void gDetail(GalaxyNote galaxy);
+	public Phone[] phoneList();
+	public CelPhone[] celPhoneList();
+	public void detail(Iphone phone);
+	public void detail(GalaxyNote phone);
 	public int count();
 	public void update(Phone phone);
 	public void delete(Phone phone);
