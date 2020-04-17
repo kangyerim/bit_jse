@@ -5,7 +5,7 @@ public class MemberServiceImpl implements MemberService {
 	private int count;
 
 	public MemberServiceImpl() {
-		members = new Member[50000];
+		members = new Member[5];
 		count = 0;
 	}
 
@@ -23,38 +23,38 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member[] searchByName(String name) {
-		Member[] searchs = null;
+		Member[] searchName = null;
 		int searchCount = count(name);
-		if(searchCount != 0) {
-			searchs = new Member[searchCount];
+		if (searchCount != 0) {
+			searchName = new Member[searchCount];
 			int j = 0;
-			for(int i = 0; i < count; i++) {
-				if(name.equals(members[i].getName())) {
-					searchs[j] = members[i];
+			for (int i = 0; i < count; i++) {
+				if (name.equals(members[i].getName())) {
+					searchName[j] = members[i];
 					j++;
-					if(searchCount == j) {
-						break;
-					}
+				}
+				if (searchCount == j) {//??
+					break;
 				}
 			}
-			
 		}
-		return searchs;
+		return searchName;
 	}
 
 	@Override
 	public Member[] searchByGender(String gender) {
-		Member[] serchGenders = null;
+		Member[] searchGender = null;
 
-		return serchGenders;
+		return searchGender;
 	}
 
 	@Override
 	public Member detail(String userid) {
-		Member detail = new Member();
+		Member detail = null;
 		for (int i = 0; i < count; i++) {
 			if (userid.equals(members[i].getUserid())) {
 				detail = members[i];
+				break;
 			}
 		}
 		return detail;
@@ -67,13 +67,13 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int count(String name) {
-		int returnCount = 0;
+		int nameCount = 0;
 		for (int i = 0; i < count; i++) {
 			if (name.equals(members[i].getName())) {
-				returnCount++;
+				nameCount++;
 			}
 		}
-		return returnCount;
+		return nameCount;
 	}
 
 	@Override
@@ -97,6 +97,7 @@ public class MemberServiceImpl implements MemberService {
 				break;
 			}
 		}
+
 	}
 
 	@Override
@@ -107,6 +108,7 @@ public class MemberServiceImpl implements MemberService {
 				members[i] = members[count - 1];
 				members[count - 1] = null;
 				count--;
+				break;
 			}
 		}
 	}
