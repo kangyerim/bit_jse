@@ -17,35 +17,35 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member[] list() {
-
 		return members;
 	}
 
 	@Override
 	public Member[] searchByName(String name) {
-		Member[] searchName = null;
-		int searchCount = count(name);
-		if (searchCount != 0) {
-			searchName = new Member[searchCount];
+		Member[] searchByName = null;
+		int nameCount = count(name);
+		if (nameCount != 0) {
+			searchByName = new Member[nameCount];
 			int j = 0;
 			for (int i = 0; i < count; i++) {
+				System.out.println(members[i]);
 				if (name.equals(members[i].getName())) {
-					searchName[j] = members[i];
+					searchByName[j] = members[i];
 					j++;
 				}
-				if (searchCount == j) {//??
+				if (nameCount == j) {
 					break;
 				}
 			}
 		}
-		return searchName;
+
+		return searchByName;
 	}
 
 	@Override
 	public Member[] searchByGender(String gender) {
-		Member[] searchGender = null;
-
-		return searchGender;
+		Member[] searchByGender = null;
+		return searchByGender;
 	}
 
 	@Override
@@ -67,13 +67,13 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int count(String name) {
-		int nameCount = 0;
-		for (int i = 0; i < count; i++) {
+		int count = 0;
+		for (int i = 0; i < this.count; i++) {
 			if (name.equals(members[i].getName())) {
-				nameCount++;
+				count++;
 			}
 		}
-		return nameCount;
+		return count;
 	}
 
 	@Override
@@ -97,7 +97,6 @@ public class MemberServiceImpl implements MemberService {
 				break;
 			}
 		}
-
 	}
 
 	@Override
